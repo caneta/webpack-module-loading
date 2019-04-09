@@ -1,0 +1,37 @@
+{
+  "name": "webpack-module-loading",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build-js": "webpack --progress --display-modules",
+    "copy-html": "cpx src/html/**/*.html dist/",
+    "clean-build": "rimraf build/",
+    "clean-dist": "rimraf dist/",
+    "clean-all": "npm run clean-build && npm run clean-dist",
+    "dist-js": "npm run build-js && cpx 'build/js/**/*' 'dist/js/'",
+    "dist-all": "npm run dist-js && npm run copy-html",
+    "start": "npm run dist-all && http-server dist/ -p 3000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caneta/webpack-module-loading.git"
+  },
+  "author": "Alessandro Candini",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/caneta/webpack-module-loading/issues"
+  },
+  "homepage": "https://github.com/caneta/webpack-module-loading#readme",
+  "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "babel-loader": "^8.0.5",
+    "cpx": "^1.5.0",
+    "http-server": "^0.11.1",
+    "rimraf": "^2.6.3",
+    "uglifyjs-webpack-plugin": "^2.1.2",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
+  }
+}
